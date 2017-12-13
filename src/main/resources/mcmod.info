@@ -1,0 +1,16 @@
+[
+{
+  "modid": "PrefixJoinQuitMsg",
+  "name": "PrefixJoinQuitMsg",
+  "description": "PrefixJoinQuitMsg",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/SimplyRin/PrefixJoinQuitMsg-1.8.9",
+  "updateUrl": "",
+  "authorList": ["SimplyRin"],
+  "credits": "https://github.com/SimplyRin/PrefixJoinQuitMsg-1.8.9",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
