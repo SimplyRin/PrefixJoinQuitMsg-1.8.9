@@ -2,6 +2,8 @@
 Hypixel のフレンド Join/Quit メッセージに Prefix を付けれる Mod です。
 
 この Mod は <a href="https://www.chattriggers.com/">ChatTriggers<a/> の <a href="https://www.chattriggers.com/old/imports/RankJoinLeave">Rank Join Leave<a/> を参考にし、作成しました。
+  
+<img src="https://t.gyazo.com/teams/omn/02fb507562450d1ee1d4174c77aea0b5.png" alt="02fb507562450d1ee1d4174c77aea0b5" title="02fb507562450d1ee1d4174c77aea0b5">
 
 # Download
 
