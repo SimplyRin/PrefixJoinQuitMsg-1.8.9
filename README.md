@@ -3,6 +3,10 @@ Hypixel のフレンド Join/Quit メッセージに Prefix を付けれる Mod 
 
 この Mod は <a href="https://www.chattriggers.com/">ChatTriggers<a/> の <a href="https://www.chattriggers.com/old/imports/RankJoinLeave">Rank Join Leave<a/> を参考にし、作成しました。
 
+# Download
+
+ダウンロード: <a href="https://goo.gl/tX2Utc">v1.0<a/>
+
 # Libraries
 
 この Mod は <a href="https://github.com/Sk1er/Sk1erHypixelPublicMod">Sk1erHypixelPublicMod<a/> の一部のコードを使用しています。
