@@ -5,7 +5,9 @@ Hypixel のフレンド Join/Quit メッセージに Prefix を付けれる Mod 
 
 # Download
 
-ダウンロード: <a href="https://goo.gl/tX2Utc">v1.0<a/>
+ダウンロード: <a href="https://goo.gl/tX2Utc">v1.0<a/> 
+
+※ 使用は自己責任でお願いします...
 
 # Libraries
 
