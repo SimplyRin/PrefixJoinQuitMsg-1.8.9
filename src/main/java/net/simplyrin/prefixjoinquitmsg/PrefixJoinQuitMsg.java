@@ -99,7 +99,7 @@ public class PrefixJoinQuitMsg {
 			}
 
 			if(type.equals(TYPE.LEFT)) {
-				ChatHandler.send("§7[§a+§7] §r" + prefix + " " + name + " §eleft.");
+				ChatHandler.send("§7[§c-§7] §r" + prefix + " " + name + " §eleft.");
 			}
 		});
 	}
