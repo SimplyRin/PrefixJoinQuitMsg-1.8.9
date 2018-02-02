@@ -44,44 +44,22 @@ public class PrefixJoinQuitMsg {
 			return;
 		}
 
-		try {
-			if(args == null) {
-				return;
+		if(args.length > 1) {
+			if(args[1].equals("joined.")) {
+				String name = args[0];
+				event.setCanceled(true);
+
+				System.out.println(name + " joined.");
+				post(name, TYPE.JOIN);
 			}
-		} catch (Exception e) {
-			return;
-		}
 
-		try {
-			if(args[0].isEmpty()) {
-				return;
+			if(args[1].equals("left.")) {
+				String name = args[0];
+				event.setCanceled(true);
+
+				System.out.println(name + " left.");
+				post(name, TYPE.LEFT);
 			}
-		} catch (Exception e) {
-			return;
-		}
-
-		try {
-			if(args[1].isEmpty()) {
-				return;
-			}
-		} catch (Exception e) {
-			return;
-		}
-
-		if(args[1].equals("joined.")) {
-			String name = args[0];
-			event.setCanceled(true);
-
-			System.out.println(name + " joined.");
-			post(name, TYPE.JOIN);
-		}
-
-		if(args[1].equals("left.")) {
-			String name = args[0];
-			event.setCanceled(true);
-
-			System.out.println(name + " left.");
-			post(name, TYPE.LEFT);
 		}
 	}
 
