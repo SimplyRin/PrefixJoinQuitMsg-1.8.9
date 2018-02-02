@@ -50,7 +50,7 @@ public class PrefixJoinQuitMsg {
 				event.setCanceled(true);
 
 				System.out.println(name + " joined.");
-				post(name, TYPE.JOIN);
+				this.post(name, TYPE.JOIN);
 			}
 
 			if(args[1].equals("left.")) {
@@ -58,7 +58,7 @@ public class PrefixJoinQuitMsg {
 				event.setCanceled(true);
 
 				System.out.println(name + " left.");
-				post(name, TYPE.LEFT);
+				this.post(name, TYPE.LEFT);
 			}
 		}
 	}
@@ -101,7 +101,7 @@ public class PrefixJoinQuitMsg {
 		});
 	}
 
-	private static void post(String name, TYPE type) {
+	private void post(String name, TYPE type) {
 		Multithreading.runAsync(() -> {
 			String result = Sk1erMod.rawWithAgent("http://hypixel.chattriggers.com/stats/playerinfo/" + name);
 
