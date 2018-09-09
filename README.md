@@ -20,9 +20,9 @@ URL: `https://api.simplyrin.net/Hypixel-API/prefix.php?name=SimplyRin`
 Callback:
 ```JSON
 {
-  success: true,
-  player: "SimplyRin",
-  prefix: "&6[MVP&4++&6]"
+  "success": true,
+  "player": "SimplyRin",
+  "prefix": "&6[MVP&4++&6]"
 }
 ```
 
