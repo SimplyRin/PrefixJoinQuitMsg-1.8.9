@@ -17,7 +17,7 @@ Prefix 取得したい場合以下の API を使用することで取得でき�
 
 URL: `https://api.simplyrin.net/Hypixel-API/prefix.php?name=SimplyRin`
 
-Callback:
+Result:
 ```JSON
 {
   "success": true,
