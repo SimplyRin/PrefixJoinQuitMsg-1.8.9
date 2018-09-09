@@ -10,13 +10,17 @@ import org.apache.commons.io.IOUtils;
 public class Sk1erMod {
 
 	public static String rawWithAgent(String url) {
+		return Sk1erMod.rawWithAgent(url, "Mozilla/4.76");
+	}
+
+	public static String rawWithAgent(String url, String userAgent) {
 		System.out.println("Fetching: " + url);
 		try {
 			URL u = new URL(url);
 			HttpURLConnection connection = (HttpURLConnection) u.openConnection();
 			connection.setRequestMethod("GET");
 			connection.setUseCaches(true);
-			connection.addRequestProperty("User-Agent", "Mozilla/4.76");
+			connection.addRequestProperty("User-Agent", userAgent);
 			connection.setReadTimeout(15000);
 			connection.setConnectTimeout(15000);
 			connection.setDoOutput(true);
