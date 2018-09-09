@@ -31,3 +31,5 @@ Result:
 この Mod は <a href="https://github.com/Sk1er/Sk1erHypixelPublicMod">Sk1erHypixelPublicMod<a/> の一部のコードを使用しています。
 
 この Mod は <a href="https://github.com/SpigotMC/BungeeCord">BungeeCord<a/> の <a href="https://github.com/SpigotMC/BungeeCord/blob/master/chat/src/main/java/net/md_5/bungee/api/ChatColor.java">ChatColor.java<a/> コードを使用しています。
+  
+1.4 より、 <a href="https://github.com/HyperiumClient/Hyperium">Hyperium<a/> コードの使用に伴い、ライセンスを MIT から GPLv3 に変更しました
