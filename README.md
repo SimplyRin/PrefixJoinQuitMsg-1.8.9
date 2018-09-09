@@ -11,6 +11,21 @@ Hypixel のフレンド Join/Quit メッセージに Prefix を付けれる Mod 
 
 ※ 使用は自己責任でお願いします...
 
+# API
+
+Prefix 取得したい場合以下の API を使用することで取得できます。
+
+URL: `https://api.simplyrin.net/Hypixel-API/prefix.php?name=SimplyRin`
+
+Callback:
+```JSON
+{
+  success: true,
+  player: "SimplyRin",
+  prefix: "&6[MVP&4++&6]"
+}
+```
+
 # Libraries
 
 この Mod は <a href="https://github.com/Sk1er/Sk1erHypixelPublicMod">Sk1erHypixelPublicMod<a/> の一部のコードを使用しています。
