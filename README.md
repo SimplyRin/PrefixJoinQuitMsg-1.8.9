@@ -7,7 +7,7 @@ Hypixel のフレンド Join/Quit メッセージに Prefix を付けれる Mod 
 
 # Download
 
-ダウンロード: <a href="https://goo.gl/kfFqVg">v1.0<a/> 
+ダウンロード: <a href="https://github.com/SimplyRin/PrefixJoinQuitMsg-1.8.9/releases/download/1.4/PrefixJoinQuitMsg-1.4.jar">v1.4<a/> 
 
 ※ 使用は自己責任でお願いします...
 
@@ -16,5 +16,3 @@ Hypixel のフレンド Join/Quit メッセージに Prefix を付けれる Mod 
 この Mod は <a href="https://github.com/Sk1er/Sk1erHypixelPublicMod">Sk1erHypixelPublicMod<a/> の一部のコードを使用しています。
 
 この Mod は <a href="https://github.com/SpigotMC/BungeeCord">BungeeCord<a/> の <a href="https://github.com/SpigotMC/BungeeCord/blob/master/chat/src/main/java/net/md_5/bungee/api/ChatColor.java">ChatColor.java<a/> コードを使用しています。
-
-この Mod は <a href="https://www.chattriggers.com/">ChatTriggers<a/> の <a href="http://hypixel.chattriggers.com/">API<a/> を使用しています。
