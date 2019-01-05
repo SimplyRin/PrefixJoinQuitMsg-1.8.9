@@ -7,8 +7,8 @@ import club.sk1er.mods.publicmod.Multithreading;
 import club.sk1er.mods.publicmod.Sk1erMod;
 import net.md_5.bungee.api.ChatColor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -17,11 +17,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 
-@Mod(modid = PrefixJoinQuitMsg.MODID, version = PrefixJoinQuitMsg.VERSION)
-public class PrefixJoinQuitMsg {
+@Mod(modid = Main.MODID, version = Main.VERSION)
+public class Main {
 
 	public static final String MODID = "PrefixJoinQuitMsg";
-	public static final String VERSION = "1.4";
+	public static final String VERSION = "1.5";
 
 	public boolean isHypixel = false;
 
@@ -34,8 +34,7 @@ public class PrefixJoinQuitMsg {
 
 	@SubscribeEvent
 	public void onLogin(FMLNetworkEvent.ClientConnectedToServerEvent event) {
-		String address = event.manager.getRemoteAddress().toString().toLowerCase();
-		isHypixel = address.contains("hypixel.net");
+		this.isHypixel = event.manager.getRemoteAddress().toString().toLowerCase().contains("hypixel.net");
 	}
 
 	@SubscribeEvent
@@ -46,8 +45,8 @@ public class PrefixJoinQuitMsg {
 			return;
 		}
 
-		if(args.length > 1) {
-			if(args[1].equals("joined.")) {
+		if (args.length > 1) {
+			if (args[1].equals("joined.")) {
 				String name = args[0];
 				event.setCanceled(true);
 
@@ -55,7 +54,7 @@ public class PrefixJoinQuitMsg {
 				this.post(name, TYPE.JOIN);
 			}
 
-			if(args[1].equals("left.")) {
+			if (args[1].equals("left.")) {
 				String name = args[0];
 				event.setCanceled(true);
 
@@ -89,41 +88,41 @@ public class PrefixJoinQuitMsg {
 			String version = ChatColor.translateAlternateColorCodes('&', result.split(",")[1]);
 			String msg = ChatColor.translateAlternateColorCodes('&', result.split(",")[2]);
 
-			if(!update) {
+			if (!update) {
 				return;
 			}
 
-			this.sendMessage(getPrefix() + "§b§m-------------------------");
-			this.sendMessage(getPrefix() + "§b新しいバージョンが使用できます。");
-			this.sendMessage(getPrefix() + " ");
-			this.sendMessage(getPrefix() + "§bバージョン: " + version);
-			this.sendMessage(getPrefix() + "§bメッセージ: " + msg);
-			this.sendMessage(getPrefix() + " ");
-			this.sendMessage(getPrefix() + "§b§m-------------------------");
+			this.sendMessage("&b&m-------------------------");
+			this.sendMessage("&b新しいバージョンが使用できます。");
+			this.sendMessage(" ");
+			this.sendMessage("&bバージョン: " + version);
+			this.sendMessage("&bメッセージ: " + msg);
+			this.sendMessage(" ");
+			this.sendMessage("&b&m-------------------------");
 		});
 	}
 
 	private void post(String name, TYPE type) {
-		if(this.cache.get(name) != null) {
-			if(type.equals(TYPE.JOIN)) {
+		if (this.cache.get(name) != null) {
+			if (type.equals(TYPE.JOIN)) {
 				this.sendMessage("§7[§a+§7] §r" + this.cache.get(name) + " " + name + " §ejoined.");
 			}
 
-			if(type.equals(TYPE.LEFT)) {
+			if (type.equals(TYPE.LEFT)) {
 				this.sendMessage("§7[§c-§7] §r" + this.cache.get(name) + " " + name + " §eleft.");
 			}
 			return;
 		}
 
 		Multithreading.runAsync(() -> {
-			String result = Sk1erMod.rawWithAgent("https://api.simplyrin.net/Hypixel-API/prefix.php?name=" + name);
+			String result = Sk1erMod.rawWithAgent("https://api.v2.simplyrin.net/Hypixel-API/prefix.php?name=" + name);
 			JsonHolder jsonHolder = new JsonHolder(result);
 
-			if(!jsonHolder.has("success")) {
+			if (!jsonHolder.has("success")) {
 				return;
 			}
 
-			if(!jsonHolder.optBoolean("success")) {
+			if (!jsonHolder.optBoolean("success")) {
 				return;
 			}
 
@@ -131,18 +130,18 @@ public class PrefixJoinQuitMsg {
 
 			this.cache.put(name, prefix);
 
-			if(type.equals(TYPE.JOIN)) {
-				this.sendMessage("§7[§a+§7] §r" + prefix + " " + name + " §ejoined.");
+			if (type.equals(TYPE.JOIN)) {
+				this.sendMessage("&7[&a+&7] &r" + prefix + " " + name + " &ejoined.");
 			}
 
-			if(type.equals(TYPE.LEFT)) {
-				this.sendMessage("§7[§c-§7] §r" + prefix + " " + name + " §eleft.");
+			if (type.equals(TYPE.LEFT)) {
+				this.sendMessage("&7[&c-&7] &r" + prefix + " " + name + " &eleft.");
 			}
 		});
 	}
 
 	public String getPrefix() {
-		return "§7[§cPrefixJoinQuitMsg§7] §r";
+		return "&7[&cPrefixJoinQuitMsg&7] &r";
 	}
 
 	public enum TYPE {
@@ -150,10 +149,7 @@ public class PrefixJoinQuitMsg {
 	}
 
 	public void sendMessage(String message) {
-		message = message.replaceAll("&", "\u00a7");
-		message = message.replaceAll("§", "\u00a7");
-
-		Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(message));
+		Minecraft.getMinecraft().thePlayer.addChatComponentMessage(ForgeHooks.newChatWithLinks(ChatColor.translateAlternateColorCodes('&', this.getPrefix() + message)));
 	}
 
 }
