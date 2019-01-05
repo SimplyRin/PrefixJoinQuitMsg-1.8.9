@@ -92,13 +92,13 @@ public class Main {
 				return;
 			}
 
-			this.sendMessage("&b&m-------------------------");
-			this.sendMessage("&b新しいバージョンが使用できます。");
-			this.sendMessage(" ");
-			this.sendMessage("&bバージョン: " + version);
-			this.sendMessage("&bメッセージ: " + msg);
-			this.sendMessage(" ");
-			this.sendMessage("&b&m-------------------------");
+			this.sendMessage(this.getPrefix() + "&b&m-------------------------");
+			this.sendMessage(this.getPrefix() + "&b新しいバージョンが使用できます。");
+			this.sendMessage(this.getPrefix() + " ");
+			this.sendMessage(this.getPrefix() + "&bバージョン: " + version);
+			this.sendMessage(this.getPrefix() + "&bメッセージ: " + msg);
+			this.sendMessage(this.getPrefix() + " ");
+			this.sendMessage(this.getPrefix() + "&b&m-------------------------");
 		});
 	}
 
@@ -149,7 +149,7 @@ public class Main {
 	}
 
 	public void sendMessage(String message) {
-		Minecraft.getMinecraft().thePlayer.addChatComponentMessage(ForgeHooks.newChatWithLinks(ChatColor.translateAlternateColorCodes('&', this.getPrefix() + message)));
+		Minecraft.getMinecraft().thePlayer.addChatComponentMessage(ForgeHooks.newChatWithLinks(ChatColor.translateAlternateColorCodes('&', message)));
 	}
 
 }
